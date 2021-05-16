@@ -18,6 +18,7 @@ TOP_V=../../design/top.v
 all: make_bus make_top compile simulate
 
 make_bus:
+        mkdir -p ../../design
 	@if [ ! -x $(GEN_BUS) ]; then make -C ../../..; fi
 	@if [ ! -x $(GEN_BUS) ]; then echo "Something wrong"; exit -1; fi
 	$(GEN_BUS) --mst=$(MST) --slv=$(SLV) --out=$(BUS_V)
